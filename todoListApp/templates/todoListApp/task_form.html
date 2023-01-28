@@ -1,0 +1,27 @@
+{% extends 'todoListApp/main.html' %}<!--  part n f -->
+{% block content %}<!--  part n f -->
+
+<div class="header-bar">
+    <a href="{% url 'tasks' %}">&#8592; Back</a> <!-- part O d -->
+</div>
+
+<!--<h3>Task Form</h3>  part f a 
+<a href="{% url 'tasks' %}">Go back</a>-->
+
+ <!--<form action="" method="post">
+    {% csrf_token %}
+    <!-- {{form}} 
+    {{form.as_p}}
+    <input class="button" type="submit" value="submit">
+</form>-->
+
+<div class="card-body">
+    <form action="" method="post">
+        {% csrf_token %}
+        <!-- {{form}} -->
+        {{form.as_p}}
+        <input class="button" type="submit" value="submit">
+    </form>
+</div>
+
+{% endblock content %}<!--  part n f -->

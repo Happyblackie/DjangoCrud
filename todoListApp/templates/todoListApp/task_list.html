@@ -1,0 +1,121 @@
+{% extends 'todoListApp/main.html' %}<!--  part n f -->
+{% block content %}<!--  part n f -->
+
+<div class="header-bar"> <!-- part n j -->
+    <div class="">
+        <h1>Hello {{request.user|title}}</h1>
+        <h3> You have <i>{{count}} incomplete task{{count|pluralize:"s"}}</i></h3>
+    </div>
+
+ <!--    part n k -->
+    {% if request.user.is_authenticated %} <!-- part i a -->
+
+   <!--  <p>Hello {{request.user}}? Welcome</p> --> <!-- part i c -->
+    <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+    <a href="{% url 'login' %}">Login</a>   <!-- added this "{% url 'login' %}" at part h i  -->
+    {% endif %}
+</div>
+
+<!-- part O a -->
+<div id="search-add-wrapper">
+    <form method="get" style="margin: top 20px; display:flex;">                   
+        <input type="text" name="search-area" value="{{search_input}}">
+        <input class="button" type="submit" value="Search">
+    </form> 
+    <a id="add-link" href="{% url 'task-create' %}">&#x2b;</a>
+</div>
+
+
+
+
+
+
+
+<!--{% if request.user.is_authenticated %} <!-- part i a 
+
+<p>Hello {{request.user}}? Welcome</p> <!-- part i c 
+<a href="{% url 'logout' %}">Logout</a>
+{% else %}
+<a href="{% url 'login' %}">Login</a>   <!-- added this "{% url 'login' %}" at part h i  
+{% endif %} -->
+
+
+
+
+
+
+
+<!-- part D c -->
+<h1>My To Do List {{color}}</h1>
+<!--<a href="{% url 'task-create' %}">Add Task</a>  part f a -->
+<!-- end of part D c -->
+
+
+<!-- search form   part M a -->
+<!--<form method="get">                     <!-- persist data here  part m d  
+    <input type="text" name="search-area" value="{{search_input}}">
+    <input type="submit" value="Search">
+    </form> 
+-->
+
+
+<!-- part n k -->
+<div class="task-items-wrapper">
+    {% for task in tasks %}
+    <div class="task-wrapper">
+        {% if task.complete %}
+
+        <div class="task-title">
+            <div class="task-complete-icon"></div>
+            <i><s><a href="{% url 'task-update' task.id %}">{{task}}</a></s></i>
+        </div>
+        <div class="delete-link">
+            <a href="{% url 'task-delete' task.id %}">&#215;</a>
+        </div>
+
+        {% else %}
+
+        <div class="task-title">
+            <div class="task-incomplete-icon"></div>
+            <a href="{% url 'task-update' task.id %}">{{task}}</a>
+        </div>
+        <div class="delete-link">
+            <a href="{% url 'task-delete' task.id %}">&#215;</a>
+        </div>
+
+        {% endif %}
+    </div>
+
+    {% empty %}
+
+    <h3>No items in the list</h3>
+
+    {% endfor %}
+    
+</div>
+
+
+
+
+
+<!-- part D d -->
+<!-- <table>
+    <tr>
+        <th>Item</th>
+        <th>Action</th> <!-- part D e 
+    </tr>
+   {% for task in tasks %}
+   <tr>
+        <td>{{task.title}}</td>
+       <!--  <td><a href="{% url 'task' task.id %}">View</a></td> --><!--  part D e  and part N a
+        <td><a href="{% url 'task-update' task.id %}">Edit</a></td><!--  part g a 
+        <td><a href="{% url 'task-delete' task.id %}">Delete</a></td><!--  part h a 
+    </tr>
+   {% empty %}
+   <h3>No items in the list</h3>
+   {% endfor %}
+</table> 
+<!-- end of part D d 
+
+{% endblock content %}<!--  part n f -->

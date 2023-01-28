@@ -1,0 +1,43 @@
+{% extends 'todoListApp/main.html' %}<!--  part n f -->
+{% block content %}<!--  part n f -->
+
+
+<!-- 
+<h1>Register</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Register">
+</form> -->
+
+
+<!-- <p>Already have an account? <a href="{% url 'login' %}">Login</a></p> <!-- part l a -->
+
+
+<!-- part P b -->
+<div class="header-bar">
+    <h1>Register</h1>
+</div>
+
+<div class="card-body">
+    <form action="" method="POST">
+        {% csrf_token %}
+       <!--  part P c -->
+        <label for="">{{form.username.label}}</label>
+        {{form.username}}
+
+        <label for="">{{form.password1.label}}</label>
+        {{form.password1}}
+
+        <label for="">{{form.password2.label}}</label>
+        {{form.password2}}
+
+
+        <input style="margin-top:10px;" class="button" type="submit" value="Register">
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p> 
+</div>
+
+
+{% endblock content %}<!--  part n f -->

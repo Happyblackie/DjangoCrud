@@ -1,0 +1,32 @@
+{% extends 'todoListApp/main.html' %}<!--  part n f -->
+{% block content %}<!--  part n f -->
+
+<div class="header-bar">
+  <a href="{% url 'tasks' %}">&#8592; Go back</a> <!--  part O e -->
+</div>
+
+<!--<a href="{% url 'tasks' %}">Go back</a>  <!-- part h a -->
+
+<!-- 
+  <form action="" method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delet this task? "{{task}}"</p><!-- "{{task}}" this is a context object name -->
+    <!--   confirmation delete button 
+    <input class="button" type="submit" value="Delete">
+  </form>
+-->
+
+
+
+<!--  part O e -->
+<div class="card-body">
+  <form action="" method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delet this task? "{{task}}"</p><!-- "{{task}}" this is a context object name -->
+    <!--   confirmation delete button -->
+    <input class="button" type="submit" value="Delete">
+  </form>
+</div>
+
+
+{% endblock content %}<!--  part n f -->
